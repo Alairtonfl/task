@@ -12,9 +12,9 @@ describe('TasksService', () => {
   });
 
   it('should create a new task', () => {
-    const task = service.create({ title: 'Study NestJS' });
+    const task = service.create({ title: 'Tarefa Node' });
     expect(task).toHaveProperty('id');
-    expect(task.title).toBe('Study NestJS');
+    expect(task.title).toBe('Tarefa Node');
     expect(task.done).toBe(false);
   });
 
@@ -27,7 +27,7 @@ describe('TasksService', () => {
   });
 
   it('should mark a task as done', () => {
-    const task = service.create({ title: 'Complete project' });
+    const task = service.create({ title: 'Tarefa Node' });
     const doneTask = service.markAsDone(task.id);
 
     expect(doneTask.done).toBe(true);

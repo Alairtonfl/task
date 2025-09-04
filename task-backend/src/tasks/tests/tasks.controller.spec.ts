@@ -12,10 +12,10 @@ describe('TasksController', () => {
     controller = new TasksController(service);
   });
 
-  it('should create a task via controller', () => {
-    const task = controller.create({ title: 'Read documentation' });
+  it('should create a task', () => {
+    const task = controller.create({ title: 'Teste' });
     expect(task).toHaveProperty('id');
-    expect(task.title).toBe('Read documentation');
+    expect(task.title).toBe('Teste');
   });
 
   it('should return all tasks', () => {
@@ -26,8 +26,8 @@ describe('TasksController', () => {
     expect(tasks.length).toBe(2);
   });
 
-  it('should mark a task as done via controller', () => {
-    const task = controller.create({ title: 'Make commit' });
+  it('should mark a task as done', () => {
+    const task = controller.create({ title: 'Tarefas' });
     const updated = controller.markAsDone(task.id);
 
     expect(updated.done).toBe(true);
