@@ -18,7 +18,13 @@ export class TasksRepository {
   }
 
   findAll(): Task[] {
-    return this.tasks;
+    return this.tasks.sort((a, b) => {
+      if (a.done !== b.done) {
+        return Number(a.done) - Number(b.done);
+      }
+
+      return b.id - a.id;
+    });
   }
 
   findOne(id: number): Task | undefined {

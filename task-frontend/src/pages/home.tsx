@@ -38,7 +38,7 @@ export default function Home() {
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
       <div className="w-full max-w-md bg-white rounded-xl shadow-lg p-6">
         <h1 className="text-2xl font-bold mb-4 text-center text-blue-600">
-          📝 Task List
+          📝 Lista de tarefas
         </h1>
         <TaskForm onTaskCreated={handleTaskCreated} onSearchChange={handleSearchChange} />
         <TaskList tasks={filteredTasks} onTaskUpdated={handleTaskUpdated} />

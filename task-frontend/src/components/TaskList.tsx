@@ -11,9 +11,16 @@ export default function TaskList({ tasks, onTaskUpdated }: TaskListProps) {
     onTaskUpdated(updated);
   };
 
+  const sortedTasks = [...tasks].sort((a, b) => {
+    if (a.done !== b.done) {
+      return Number(a.done) - Number(b.done); 
+    }
+    return b.id - a.id;
+  });
+
   return (
     <ul className="space-y-2">
-      {tasks.map((task) => (
+      {sortedTasks.map((task) => (
         <li
           key={task.id}
           className="flex items-center justify-between p-3 bg-white shadow rounded-lg border"
@@ -30,7 +37,7 @@ export default function TaskList({ tasks, onTaskUpdated }: TaskListProps) {
               onClick={() => handleDone(task.id)}
               className="px-3 py-1 bg-green-500 text-white rounded-lg hover:bg-green-600 transition"
             >
-              Mark as Done
+              ✔
             </button>
           )}
         </li>
