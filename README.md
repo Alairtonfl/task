@@ -1,36 +1,108 @@
-# 📝 Tasks API - NestJS + Docker
+# 📝 Projeto Task - Frontend + Backend Dockerizado
 
-Este projeto é uma API simples de TODO List feita com **NestJS**, **TypeScript** e armazenamento em memória.  
-O projeto está totalmente dockerizado, facilitando a execução em qualquer ambiente.
+Este projeto é uma aplicação fullstack composta por:
 
----
-
-## 📦 Requisitos
-
-- [Docker](https://www.docker.com/) instalado  
-- [Docker Compose](https://docs.docker.com/compose/) (opcional, mas recomendado)  
-- WSL2 configurado (no caso de Windows)
+- ✅ **Backend**: API REST construída com **NestJS**
+- 🎨 **Frontend**: Interface com **React + TypeScript**
+- 🧪 **Testes**: Utilizando **Jest** e **React Testing Library**
+- 🐳 **Docker**: Containers separados para frontend e backend, orquestrados com **Docker Compose**
 
 ---
 
-## 🚀 Executando com Docker
+## 📁 Estrutura do Projeto
 
-### 1. Clonar o repositório
+```
+project/
+├── task-backend/         # Backend NestJS
+│   ├── src/
+│   ├── package.json
+│   └── Dockerfile
+│
+├── task-frontend/        # Frontend React
+│   ├── src/
+│   ├── public/
+│   ├── package.json
+│   ├── Dockerfile
+│   └── .env.production
+│
+└── docker-compose.yml    # Orquestração dos containers
+```
+
+---
+
+## ✅ Pré-requisitos
+
+Certifique-se de ter as seguintes ferramentas instaladas:
+
+- [Node.js](https://nodejs.org/) **v20 ou superior**
+- [Docker](https://www.docker.com/) **v24 ou superior**
+- [Docker Compose](https://docs.docker.com/compose/) **v2 ou superior**
+
+---
+
+## 🚀 Como rodar o projeto com Docker
+
+1. Na raiz do projeto, execute:
+
 ```bash
-git clone https://github.com/Alairtonfl/task.git
+docker-compose up --build
+```
+
+Isso irá:
+
+- Construir e subir os containers do backend e frontend
+- Instalar as dependências automaticamente nos containers
+
+---
+
+## 🧪 Executar Testes
+
+1. Acesse a pasta do frontend:
+
+```bash
+cd task-frontend
+```
+
+2. Instale as dependências (caso ainda não tenha feito):
+
+```bash
+npm install
+```
+
+3. Execute os testes:
+
+```bash
+npm test
+```
+
+1. Acesse a pasta do Backend:
+
+```bash
 cd task-backend
 ```
 
-### 2. Build da imagem
+2. Instale as dependências (caso ainda não tenha feito):
+
 ```bash
-docker build -t tasks-nestjs .
+npm install
 ```
 
-### 2. Rodar o container
+3. Execute os testes:
+
 ```bash
-docker run -p 3000:3000 tasks-nestjs
+npm run test
 ```
 
+---
 
+## 📌 Observações
 
+- O backend estará disponível por padrão em: `http://localhost:3000`
+- O frontend estará disponível em: `http://localhost:5173` (ou a porta configurada no Docker)
+
+---
+
+## 📄 Licença
+
+Este projeto está licenciado sob a [MIT License](LICENSE).
 
