@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: ./task-backend
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+
+  frontend:
+    build:
+      context: ./task-frontend
+      args:
+        REACT_APP_API_URL: http://localhost:3000/tasks
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend

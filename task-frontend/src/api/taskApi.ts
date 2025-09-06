@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:3000/tasks";
-
+const API_URL: string = process.env.REACT_APP_API_URL!;
 export interface Task {
   id: number;
   title: string;
